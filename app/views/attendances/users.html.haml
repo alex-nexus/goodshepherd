@@ -1,0 +1,19 @@
+%h2= @church.name
+%h3= @meeting.name
+
+%table.table.table-striped.table-bordered
+  %tr
+    %th First Name
+    %th Last Name
+    %th Email
+    %th Attended?
+    %th Not Attended?
+    
+
+  - @users.each do |user|
+    %tr
+      %td= user.first_name
+      %td= user.last_name
+      %td= user.email
+      %td= link_to 'Yes', church_meeting_attendances_path(@church, @meeting, :user_id => user.id, :format => :json ), :method => :post, :remote => true
+      %td= link_to 'No', delete_meeting_attedance_path(:meeting_id => @meeting.id, :user_id => user.id, :format => :json ), :method => :delete, :remote => true

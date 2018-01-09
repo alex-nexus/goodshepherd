@@ -1,0 +1,22 @@
+<div class="navbar navbar-fixed-top ">
+	<div class="navbar-inner top ">
+		<div class="container">
+			<%= link_to(Setting.app_name, Setting.domain , :class => "brand" )%>
+			<% unless current_user.nil? %>
+				<%= link_to current_user.default_church.name, :weekly_calendar , :class => "brand" %>
+				
+				<!--<%= render :partial => "common/search_form" %>-->
+				<div class="nav-collapse">
+					<%= render_list :class => "nav" do |li|
+          				li << link_to('Calendar', :weekly_calendar)
+          				li << link_to("Meeting", church_weekly_meetings_path(current_user.default_church))
+          				li << link_to("Members", members_church_path(current_user.default_church))
+          				li << link_to("Events", events_path(current_user.default_church))
+       				end %>
+					<%= render :partial => "common/user_nav"%>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<%= yield :submenu %>
+</div>

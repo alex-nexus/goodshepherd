@@ -1,0 +1,29 @@
+%h2 Weekly Meetings
+%h4= @church.name
+      
+%table.table.table-bordered.table.table-striped
+  %tr
+    %th Name
+    %th Start hour
+    %th End hour
+    %th Weekday
+    %th Location
+    %th Description
+    %th
+    %th
+    %th
+
+  - @weekly_meetings.each do |weekly_meeting|
+    %tr
+      %td= weekly_meeting.name
+      %td= weekly_meeting.start_hour
+      %td= weekly_meeting.end_hour
+      %td= weekly_meeting.weekday
+      %td= weekly_meeting.location
+      %td= weekly_meeting.description
+      %td= link_to 'Show', church_weekly_meeting_path(current_user.current_church, weekly_meeting)
+      %td= link_to 'Edit', edit_church_weekly_meeting_path(current_user.current_church, weekly_meeting)
+      %td= link_to 'Destroy', church_weekly_meeting_path(current_user.current_church, weekly_meeting), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+.form-actions
+  .btn.btn-primary= link_to 'Create New Meeting', new_church_weekly_meeting_path(current_user.current_church)

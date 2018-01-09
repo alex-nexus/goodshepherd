@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @church.name
+%p
+  %b Description:
+  = @church.description
+%p
+  %b City:
+  = @church.city
+%p
+  %b Region:
+  = @church.region
+
+= link_to 'Edit', edit_church_path(@church)
+\|
+= link_to 'Back', churches_path

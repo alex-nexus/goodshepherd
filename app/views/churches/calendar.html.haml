@@ -1,0 +1,12 @@
+- content_for :left_sidebar do
+  .btn-group
+    %button.btn.btn-primary.dropdown-toggle{'data-toggle'=>"dropdown", 'href'=>"#"} <i class="icon-group""></i> Create <span class="caret"></span>
+    %ul.dropdown-menu
+      %li= link_to 'Create Weekly Meeting', new_church_weekly_meeting_path(@church)
+      %li= link_to 'Create One-off Meeting', new_church_meeting_path(@church)
+      
+#church_calendar
+
+#church_id.hide= @church.id
+
+.clearfix  

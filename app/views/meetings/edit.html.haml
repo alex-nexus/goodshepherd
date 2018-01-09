@@ -1,0 +1,7 @@
+%h1 Editing meeting
+
+= render 'form'
+
+= link_to 'Show', edit_church_meeting_path(@church, @meeting)
+\|
+= link_to 'Back', church_meetings_path(@church)

@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Church:
+  = @weekly_meeting.church_id
+%p
+  %b Name:
+  = @weekly_meeting.name
+%p
+  %b Start hour:
+  = @weekly_meeting.start_hour
+%p
+  %b End hour:
+  = @weekly_meeting.end_hour
+%p
+  %b Weekday:
+  = @weekly_meeting.weekday
+%p
+  %b Location:
+  = @weekly_meeting.location
+%p
+  %b Description:
+  = @weekly_meeting.description
+
+= link_to 'Edit', edit_church_weekly_meeting_path(@church, @weekly_meeting)
+\|
+= link_to 'Back', church_weekly_meetings_path(@church)

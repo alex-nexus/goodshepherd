@@ -1,0 +1,25 @@
+%h1 Listing churches
+
+%table.table.table-striped.table-bordered
+  %tr
+    %th Name
+    %th Description
+    %th City
+    %th Region
+    %th
+    %th
+    %th
+
+  - @churches.each do |church|
+    %tr
+      %td= church.name
+      %td= church.description
+      %td= church.city
+      %td= church.region
+      %td= link_to 'Show', church
+      %td= link_to 'Edit', edit_church_path(church)
+      %td= link_to 'Destroy', church, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+.btn.btn-primary= link_to 'New Church', new_church_path
